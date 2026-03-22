@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-    --text-dark: #1A1A1A;
+    --text-dark: #333333;
     --text-grey: #555555;
-    --border-color: #EAEAEA;
-    --bg-white: #FFFFFF;
-    --font-heading: 'Playfair Display', serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --border-color: #cccccc;
+    --bg-white: #ffffff;
+    --font-heading: 'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif;
 }
 
 * {
@@ -23,145 +25,73 @@ body {
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
-.frame {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* --- NAVIGATION --- */
-.top-nav {
+/* --- HERO SECTION (Exactly from user's provided code) --- */
+.hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 4rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0));
-}
-
-.logo-mark {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-style: italic;
-    text-decoration: none;
-    color: var(--text-dark);
-    line-height: 1;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.nav-item {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--text-grey);
-    transition: color 0.3s ease;
-}
-
-.nav-item:hover {
-    color: var(--text-dark);
-}
-
-.menu-btn {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-style: italic;
-    text-decoration: none;
-    color: var(--text-dark);
-}
-
-/* --- NEW HERO CURVED --- */
-.hero-curved {
-    position: relative;
     height: 100vh;
+    padding: 0 10%;
+    background-color: #ffffff;
+}
+
+.left-content {
+    font-size: 28px;
+    line-height: 1.6;
+    letter-spacing: -0.5px;
+    color: #333;
+}
+
+.left-content div { 
+    margin-bottom: 5px; 
+}
+
+.data-box {
+    border: 1px solid #333;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.structure-box {
+    background-color: #000;
+    color: #fff;
+    padding: 2px 8px;
+    display: inline-block;
+}
+
+.right-menu {
     display: flex;
     flex-direction: column;
-    padding-top: 15vh;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
+    align-items: flex-end;
+    gap: 12px;
 }
 
-.bio-grid {
-    display: flex;
-    justify-content: center;
-    gap: 8vw;
-    z-index: 10;
-    padding: 0 4rem;
+.btn {
+    border: 1px solid #ccc;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s;
+    background-color: transparent;
+    display: inline-block;
 }
 
-.bio-column {
-    max-width: 420px;
-    background: transparent;
-}
-
-.bio-column h2 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 400;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: var(--text-dark);
-}
-
-.bio-column p {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--text-grey);
-    text-align: justify;
-    margin-bottom: 1.5rem;
-}
-
-.tilt-left {
-    transform: rotate(-3deg);
-    margin-top: 8vh;
-}
-
-.tilt-right {
-    transform: rotate(2deg);
-    margin-top: 4vh;
-}
-
-/* --- FLOWING TEXT ANIMATION --- */
-.flowing-wrapper {
-    position: absolute;
-    bottom: -10vh; /* Drop below the fold slightly to anchor it */
-    width: 200%; /* Wider width to ensure it scales nicely and overflows */
-    left: -50%;
-    height: 50vh;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.flowing-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-.flowing-text {
-    font-family: var(--font-heading);
-    font-size: 5.5rem; /* Very large text */
-    font-weight: 400;
-    fill: var(--text-dark);
-    letter-spacing: 0.02em;
+.btn:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 /* --- RESUME SECTION (Minimalist updates) --- */
 .resume-section {
-    padding: 8rem 4rem;
-    background-color: var(--bg-white);
+    padding: 8rem 10%;
+    background-color: #FAFAFA;
+    border-top: 1px solid #eaeaea;
 }
 
 .resume-header {
@@ -169,50 +99,16 @@ body {
 }
 
 .resume-header h2 {
-    font-family: var(--font-heading);
     font-size: 2.5rem;
-    font-weight: 400;
-    font-style: italic;
+    font-weight: 500;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
 }
 
 .resume-header p {
     color: var(--text-grey);
     font-size: 1.1rem;
     margin-bottom: 2rem;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.pill-btn {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    background: var(--bg-white);
-}
-
-.pill-btn:hover {
-    border-color: var(--text-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.pill-btn.highlight {
-    background: var(--text-dark);
-    color: var(--bg-white);
-    border-color: var(--text-dark);
-}
-.pill-btn.highlight:hover {
-    background: var(--bg-white);
-    color: var(--text-dark);
 }
 
 .resume-grid {
@@ -225,9 +121,9 @@ body {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--text-grey);
+    color: #888;
     margin-bottom: 3rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eaeaea;
     padding-bottom: 1rem;
 }
 
@@ -237,16 +133,15 @@ body {
 
 .resume-date {
     font-size: 0.85rem;
-    color: var(--text-grey);
+    color: #888;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .resume-company {
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.2rem;
-    font-family: var(--font-heading);
 }
 
 .resume-role {
@@ -272,7 +167,7 @@ body {
     content: "—";
     position: absolute;
     left: 0;
-    color: var(--text-grey);
+    color: #ccc;
 }
 
 .resume-details strong {
@@ -286,8 +181,7 @@ body {
 
 .competency-item h4 {
     font-size: 1.2rem;
-    font-weight: 500;
-    font-family: var(--font-heading);
+    font-weight: 600;
     margin-bottom: 0.6rem;
 }
 
@@ -299,17 +193,16 @@ body {
 
 /* --- FOOTER --- */
 .footer {
-    padding: 6rem 4rem 4rem 4rem;
-    border-top: 1px solid var(--border-color);
+    padding: 6rem 10% 4rem 10%;
+    border-top: 1px solid #eaeaea;
+    background-color: var(--bg-white);
 }
 
 .footer-content h2 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 400;
+    font-size: 2.5rem;
+    font-weight: 500;
     margin-bottom: 4rem;
-    font-style: italic;
-    text-align: center;
+    letter-spacing: -0.5px;
 }
 
 .footer-bottom {
@@ -318,7 +211,7 @@ body {
     align-items: center;
     padding-top: 2rem;
     font-size: 0.85rem;
-    color: var(--text-grey);
+    color: #888;
 }
 
 .footer-links {
@@ -338,28 +231,19 @@ body {
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .bio-grid {
+    .hero {
         flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+        justify-content: center;
+        gap: 4rem;
+        align-items: flex-start;
     }
-    .tilt-left, .tilt-right {
-        transform: none;
-        margin-top: 2rem;
+    .right-menu {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     .resume-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    .flowing-text {
-        font-size: 4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .top-nav { padding: 1.5rem 2rem; }
-    .nav-links { display: none; }
-    .hero-curved { padding-top: 10vh; }
-    .footer-content h2 { font-size: 2.5rem; }
-    .resume-section { padding: 4rem 2rem; }
 }
