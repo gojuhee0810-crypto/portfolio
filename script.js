@@ -115,16 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.competency-card, .footer-content');
+    const animatedElements = document.querySelectorAll('.competency-card, .experience-block, .footer-content');
     
     const style = document.createElement('style');
     style.textContent = `
-        .competency-card, .footer-content {
+        .competency-card, .experience-block, .footer-content {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .competency-card.visible, .footer-content.visible {
+        .competency-card.visible, .experience-block.visible, .footer-content.visible {
             opacity: 1;
             transform: translateY(0);
         }
