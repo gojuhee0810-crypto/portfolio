@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         window.addEventListener('resize', resizeSvg);
-        resizeSvg(); // Initialize dimensions
+        resizeSvg();
 
         splash.addEventListener('mousemove', (e) => {
             mouse.x = e.clientX;
@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const distY = Math.abs(mouse.y - height/2);
             
-            // Interaction zone: If mouse is near vertical center, the line curves towards it
             if (distY < 200) {
                 tgtX = mouse.x;
                 tgtY = mouse.y;
@@ -57,20 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
             tgtY = height/2;
         });
 
-        // Scroll to hide splash and transition to main
         let splashDismissed = false;
         function dismissSplash() {
             if (splashDismissed) return;
             splashDismissed = true;
             splash.classList.add('hidden');
             
-            // Prevent jump to anchor link if page was refreshed
             window.scrollTo(0, 0);
             if (window.location.hash) {
                 history.replaceState(null, null, ' ');
             }
 
-            document.body.style.overflow = 'auto'; // re-enable scroll
+            document.body.style.overflow = 'auto';
             
             // Trigger text motion entrance after splash hides
             setTimeout(() => {
@@ -78,15 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (leftContent) leftContent.classList.add('animate');
             }, 400);
             
-            // Add a little spring snap effect
             tgtY = height/2;
             tgtX = width/2;
         }
 
-        // Click to explore
         splash.addEventListener('click', dismissSplash);
-
-        // Prevent scrolling while on splash
         document.body.style.overflow = 'hidden';
 
         function animate() {
@@ -106,8 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
-
-    // === FADE IN ON SCROLL (RESUME) ===
+    // === FADE IN ON SCROLL ===
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -123,19 +115,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.resume-item, .competency-item, .footer-content');
+    const animatedElements = document.querySelectorAll('.competency-card, .footer-content');
     
     const style = document.createElement('style');
     style.textContent = `
-        .resume-item, .competency-item, .footer-content {
+        .competency-card, .footer-content {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .resume-item.visible, .competency-item.visible, .footer-content.visible {
+        .competency-card.visible, .footer-content.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .competency-card:nth-child(1) { transition-delay: 0.05s; }
+        .competency-card:nth-child(2) { transition-delay: 0.1s; }
+        .competency-card:nth-child(3) { transition-delay: 0.15s; }
+        .competency-card:nth-child(4) { transition-delay: 0.2s; }
+        .competency-card:nth-child(5) { transition-delay: 0.25s; }
     `;
     document.head.appendChild(style);
 
