@@ -247,31 +247,34 @@ body {
 .resume-date {
     font-size: 0.85rem;
     color: #888;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     font-weight: 500;
+    line-height: 1.5;
 }
 
 .resume-company {
     font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .resume-role {
     font-size: 1rem;
     color: var(--text-grey);
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
 }
 
 .resume-details {
     list-style-type: none;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.85;
     color: #444;
 }
 
 .resume-details li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
     position: relative;
     padding-left: 1.2rem;
 }
@@ -289,19 +292,20 @@ body {
 }
 
 .competency-item {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .competency-item h4 {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
 }
 
 .competency-item p {
     color: #444;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 /* --- FOOTER --- */
