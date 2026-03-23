@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --text-dark: #333333;
+    --text-dark: #1a1a1a;
     --text-grey: #555555;
-    --border-color: #cccccc;
+    --text-light: #999999;
+    --border-color: #e0e0e0;
     --bg-white: #ffffff;
-    --font-heading: 'Inter', sans-serif;
+    --bg-light: #FAFAFA;
+    --accent: #0000FF;
     --font-sans: 'Inter', sans-serif;
 }
 
@@ -75,7 +77,7 @@ body {
     color: #888;
 }
 
-/* --- HERO SECTION (Exactly from user's provided code) --- */
+/* --- HERO SECTION --- */
 .hero {
     position: relative;
     z-index: 10;
@@ -100,7 +102,7 @@ body {
 .left-content div { 
     display: flex;
     align-items: baseline;
-    margin-bottom: 10px; /* Slight breathing room for boxes */
+    margin-bottom: 10px;
     opacity: 0;
     transform: translateY(30px);
 }
@@ -109,17 +111,9 @@ body {
     animation: textMotionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.left-content.animate div:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.left-content.animate div:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.left-content.animate div:nth-child(3) {
-    animation-delay: 0.5s;
-}
+.left-content.animate div:nth-child(1) { animation-delay: 0.1s; }
+.left-content.animate div:nth-child(2) { animation-delay: 0.3s; }
+.left-content.animate div:nth-child(3) { animation-delay: 0.5s; }
 
 @keyframes textMotionReveal {
     0% {
@@ -132,18 +126,11 @@ body {
     }
 }
 
-.text-grey {
-    color: #999;
-    font-weight: 700;
-}
-
-.text-black {
-    color: #111;
-    font-weight: 700;
-}
+.text-grey { color: #999; font-weight: 700; }
+.text-black { color: #111; font-weight: 700; }
 
 .data-box {
-    border: 4px solid #111; /* Thicker border to match image */
+    border: 4px solid #111;
     padding: 0px 18px;
     border-radius: 10px;
     margin-left: 12px;
@@ -151,8 +138,8 @@ body {
 }
 
 .data-box.highlight-active {
-    background-color: #0000FF;
-    border-color: #0000FF;
+    background-color: var(--accent);
+    border-color: var(--accent);
     color: #ffffff;
     transform: scale(1.03) translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,255,0.2);
@@ -168,7 +155,7 @@ body {
 }
 
 .structure-box.highlight-active {
-    background-color: #0000FF;
+    background-color: var(--accent);
     color: #ffffff;
     transform: scale(1.03) translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,255,0.2);
@@ -200,118 +187,86 @@ body {
     border-color: #000;
 }
 
-/* --- RESUME SECTION (Minimalist updates) --- */
-.resume-section {
+/* --- ABOUT & COMPETENCIES SECTION --- */
+.about-section {
     padding: 8rem 10%;
-    background-color: #FAFAFA;
-    border-top: 1px solid #eaeaea;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
 }
 
-.resume-header {
+.about-intro {
     margin-bottom: 5rem;
 }
 
-.resume-header h2 {
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.5px;
-}
-
-.resume-header p {
-    color: var(--text-grey);
-    font-size: 1.1rem;
+.about-intro h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-light);
     margin-bottom: 2rem;
 }
 
-.resume-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+.about-desc {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--text-dark);
+    letter-spacing: -0.3px;
 }
 
-.column-title {
+.about-desc strong {
+    font-weight: 700;
+}
+
+/* Numbered Competency List */
+.competencies-list {
+    max-width: 900px;
+}
+
+.comp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.comp-row:last-child {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comp-row:hover {
+    padding-left: 1rem;
+}
+
+.comp-num {
     font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #888;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 28px;
+    padding-top: 0.3rem;
+    letter-spacing: 0.05em;
 }
 
-.resume-item {
-    margin-bottom: 3rem;
-}
-
-.resume-date {
-    font-size: 0.85rem;
-    color: #888;
+.comp-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 0.8rem;
-    font-weight: 500;
-    line-height: 1.5;
-}
-
-.resume-company {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
     line-height: 1.4;
-}
-
-.resume-role {
-    font-size: 1rem;
-    color: var(--text-grey);
-    margin-bottom: 1.4rem;
-    line-height: 1.6;
-}
-
-.resume-details {
-    list-style-type: none;
-    font-size: 0.95rem;
-    line-height: 1.85;
-    color: #444;
-}
-
-.resume-details li {
-    margin-bottom: 1.2rem;
-    position: relative;
-    padding-left: 1.2rem;
-}
-
-.resume-details li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: #ccc;
-}
-
-.resume-details strong {
-    font-weight: 600;
     color: var(--text-dark);
 }
 
-.competency-item {
-    margin-bottom: 3rem;
-}
-
-.competency-item h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-}
-
-.competency-item p {
-    color: #444;
+.comp-content p {
     font-size: 0.95rem;
-    line-height: 1.8;
+    line-height: 1.85;
+    color: #555;
 }
 
 /* --- FOOTER --- */
 .footer {
     padding: 6rem 10% 4rem 10%;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--border-color);
     background-color: var(--bg-white);
 }
 
@@ -346,7 +301,7 @@ body {
     opacity: 0.6;
 }
 
-/* Responsive */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .hero {
         flex-direction: column;
@@ -359,8 +314,40 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .resume-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    .about-desc {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .left-content {
+        font-size: 38px;
+    }
+    .about-section {
+        padding: 4rem 6%;
+    }
+    .comp-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .about-desc {
+        font-size: 1.1rem;
+    }
+    .footer {
+        padding: 4rem 6% 3rem 6%;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
     }
 }
